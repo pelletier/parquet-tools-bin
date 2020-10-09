@@ -14,17 +14,7 @@ env:
   IMAGE_NAME: parquet-tools
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build
-        run: docker build . --file Dockerfile
-
   push:
-    needs: build
-
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
