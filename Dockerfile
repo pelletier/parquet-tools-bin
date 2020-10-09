@@ -23,5 +23,5 @@ RUN mv /parquet-mr-apache-parquet-$VERSION/parquet-tools/target/parquet-tools-$V
 
 FROM openjdk:${JDK}-jdk-slim-buster
 COPY --from=builder /parquet-tools.jar /parquet-tools.jar
-COPY ./silence.sh /silence
-ENTRYPOINT ["./silence", "java", "-jar", "/parquet-tools.jar"]
+COPY ./parquet-tools-docker.sh /bin/parquet-tools
+ENTRYPOINT ["/bin/parquet-tools"]
